@@ -9,7 +9,10 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
 // Schedule tasks to be run on the server.
 
 cron.schedule("* */1 * * *", function () {
-  const timestamp = new Date();
+  const timestamp = new Date().toLocaleString("en-US", {
+    timeZone: "Asia/Jakarta",
+  });
+
   client.authorize((err, tokens) => {
     if (err) {
       console.log(err);
