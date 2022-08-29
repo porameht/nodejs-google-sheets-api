@@ -6,9 +6,9 @@ const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
   "https://www.googleapis.com/auth/spreadsheets",
 ]);
 
-// Schedule tasks to be run on the server.
+// Schedule tasks to be run on the server. 3 hr
 
-cron.schedule("* */1 * * *", function () {
+cron.schedule("* */3 * * *", function () {
   const timestamp = new Date().toLocaleString("en-US", {
     timeZone: "Asia/Jakarta",
   });
